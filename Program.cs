@@ -2,6 +2,8 @@ using System;
 using Handler.CustomerEndpointHandlers.ICustomerEntityHandler;
 using Microsoft.VisualBasic;
 using Handler.CustomerEndpointHandlers.CustomerEntityHandler;
+using Handler.ProductEndpoint.IProductHandler;
+using Handler.ProductEndpoint.ProductHandler;
 
 namespace NacreProj
 {
@@ -11,6 +13,7 @@ namespace NacreProj
         {
             var builder = WebApplication.CreateBuilder(args);
             builder.Services.AddSingleton<ICustomerEntityHandlers, CustomerHandlers>();
+            builder.Services.AddSingleton<IProductHandlers, ProductHandlers>();
         }
     }
 }

@@ -1,10 +1,11 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using DatabaseEntity.CustomerEntity;
+using DatabaseEntity.OrderItemsEntity;
 
 namespace DatabaseEntity.OrderEntity
 {
-    public class Orders
+    public class Order
     {
         [Key]
         public int OrderID { get; set; }
@@ -21,11 +22,17 @@ namespace DatabaseEntity.OrderEntity
         [Required]
         public string Status { get; set; } = null!;
 
-        public DateTime CreatedDate { get; set; }
+        public DateTime CreatedDate { get; set; } = DateTime.UtcNow;
         
-        public DateTime LastUpdatedDate { get; set; }
+        public DateTime LastUpdatedDate { get; set; } = DateTime.UtcNow;
 
         [Required]
-        public Customer Customer { get; set; } = null!; 
+        public Customer Customer { get; set; } = null!;
+
+        [Required]
+        public List<OrderItem> OrderItems { get; set; } = new();
+        
+        [Required]
+        public decimal TotalOrderPrice { get; set; }
     }
 }

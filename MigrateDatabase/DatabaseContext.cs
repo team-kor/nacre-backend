@@ -11,9 +11,9 @@ namespace MigrateDatabase.DatabaseContext
     {
         public DbSet<Customer> Customer => Set<Customer>();
 
-        public DbSet<Orders> Orders => Set<Orders>();
+        public DbSet<Order> Orders => Set<Order>();
 
-        public DbSet<OrderItems> OrderItems => Set<OrderItems>();
+        public DbSet<OrderItem> OrderItems => Set<OrderItem>();
 
         public DbSet<Product> Product => Set<Product>();
 

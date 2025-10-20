@@ -10,7 +10,7 @@ namespace Handler.ProductEndpoint.Mapper.ProductEntityMapper
             return new ProductDTO(
                     product.ProductID,
                     product.ProductName,
-                    product.BroughtPrice,
+                    product.BoughtPrice,
                     product.SellingPrice,
                     product.ProductGroupType,
                     product.ProductDescription,
@@ -18,10 +18,10 @@ namespace Handler.ProductEndpoint.Mapper.ProductEntityMapper
                     product.CreatedDate,
                     product.LastUpdatedDate);
         }
-        public static void CustomerDetailsForUpdate(RecievedProductDTO recievedProductDTO, Product product)
+        public static void ProductDetailsForUpdate(RecievedProductDTO recievedProductDTO, Product product)
         {
             product.ProductName = recievedProductDTO.ProductName;
-            product.BroughtPrice = recievedProductDTO.BroughtPrice;
+            product.BoughtPrice = recievedProductDTO.BoughtPrice;
             product.SellingPrice = recievedProductDTO.SellingPrice;
             product.ProductGroupType = recievedProductDTO.ProductGroupType;
             product.ProductDescription = recievedProductDTO.ProductDescription;
@@ -29,12 +29,12 @@ namespace Handler.ProductEndpoint.Mapper.ProductEntityMapper
             product.LastUpdatedDate = DateTime.UtcNow;
         }
 
-        public static Product MapCustomerDTOToCustomerForInsert(RecievedProductDTO recievedProductDTO)
+        public static Product MapProductDTOToCustomerForInsert(RecievedProductDTO recievedProductDTO)
         {
             return new Product
             {
                 ProductName = recievedProductDTO.ProductName,
-                BroughtPrice = recievedProductDTO.BroughtPrice,
+                BoughtPrice = recievedProductDTO.BoughtPrice,
                 SellingPrice = recievedProductDTO.SellingPrice,
                 ProductGroupType = recievedProductDTO.ProductGroupType,
                 ProductDescription = recievedProductDTO.ProductDescription,

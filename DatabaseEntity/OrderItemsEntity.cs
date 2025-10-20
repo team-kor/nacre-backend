@@ -5,10 +5,10 @@ using DatabaseEntity.ProductEntity;
 
 namespace DatabaseEntity.OrderItemsEntity
 {
-    public class OrderItems
+    public class OrderItem
     {
         [Key]
-        public int Order_Item { get; set; }
+        public int OrderItemID { get; set; }
         
         [ForeignKey(nameof(Orders))]
         public int OrderID { get; set; }
@@ -16,18 +16,20 @@ namespace DatabaseEntity.OrderItemsEntity
         [ForeignKey(nameof(Product))]
         public int ProductID { get; set; }
 
-        [Required]
-        public string Name { get; set; } = null!;
+        public decimal ProductSellingPrice { get; set; }
 
         [Required]
-        public int Quantity { get; set; }
-
-        [Required]
-        public Orders Order { get; set; } = null!;
-
-        public DateTime CreatedDate { get; set; }
+        public int OrderedQuantity { get; set; }
         
-        public DateTime LastUpdatedDate { get; set; }
+        [Required]
+        public decimal TotalOrderPriceForItem { get; set; }
+
+        [Required]
+        public Order Orders { get; set; }
+
+        public DateTime CreatedDate { get; set; } = DateTime.UtcNow;
+        
+        public DateTime LastUpdatedDate { get; set; } = DateTime.UtcNow;
 
         [Required]
         public Product Product { get; set; } = null!;

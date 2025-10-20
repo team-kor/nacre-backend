@@ -11,10 +11,10 @@ namespace DatabaseEntity.ProductEntity
         public string ProductName { get; set; } = null!;
 
         [Required]
-        public double BroughtPrice { get; set; }
+        public decimal BoughtPrice { get; set; }
 
         [Required]
-        public double SellingPrice { get; set; }
+        public decimal SellingPrice { get; set; }
 
         [Required]
         public string ProductGroupType { get; set; } = null!;
@@ -25,8 +25,8 @@ namespace DatabaseEntity.ProductEntity
         [Required]
         public string Status { get; set; } = null!;
 
-        public DateTime CreatedDate { get; set; }
+        public DateTime CreatedDate { get; set; } = DateTime.UtcNow;
         
-        public DateTime LastUpdatedDate { get; set; }
+        public DateTime LastUpdatedDate { get; set; } = DateTime.UtcNow;
     }
 }

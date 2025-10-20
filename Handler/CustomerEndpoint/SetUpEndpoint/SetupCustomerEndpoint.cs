@@ -5,7 +5,7 @@ using DatabaseEntity.CustomerEntity;
 
 namespace Hanlder.CustomerEndpointHandlers.SetUpEndpoint.SetUpCustomerEndpoint
 {
-    public static class SetUpEndpoint
+    public static class SetUpCustomerEndpoint
     {
         public static IEndpointRouteBuilder SetUp(this IEndpointRouteBuilder app)
         {
@@ -27,7 +27,7 @@ namespace Hanlder.CustomerEndpointHandlers.SetUpEndpoint.SetUpCustomerEndpoint
             {
                 CustomerDTO customerById = await customerEntityHandlers.GetCustomerByID(id, cancellationToken);
                 return Results.Ok(customerById);
-            }).WithName("SingleItem");
+            }).WithName("SingleCustomer");
 
             group.MapPut("/{id:int}", async Task<IResult>
             (
@@ -49,7 +49,7 @@ namespace Hanlder.CustomerEndpointHandlers.SetUpEndpoint.SetUpCustomerEndpoint
             ) =>
             {
                 var result = await customerEntityHandler.InsertNewCustomerDetails(recievedDetails, cancellationToken);
-                return Results.CreatedAtRoute("SingleItem", new { id = result.CustomerID }, result);
+                return Results.CreatedAtRoute("SingleCustomer", new { id = result.CustomerID }, result);
             });
 
             group.MapDelete("/{id:int}", async Task<IResult>

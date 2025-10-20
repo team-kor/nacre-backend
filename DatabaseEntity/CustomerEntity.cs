@@ -19,9 +19,9 @@ namespace DatabaseEntity.CustomerEntity
         [Required]
         public string Address { get; set; } = null!;
 
-        public DateTime CreatedDate { get; set; }
+        public DateTime CreatedDate { get; set; } = DateTime.UtcNow;
         
-        public DateTime LastUpdatedDate { get; set; }
+        public DateTime LastUpdatedDate { get; set; } = DateTime.UtcNow;
 
         [Required]
         public string ContactPreference { get; set; } = null!;

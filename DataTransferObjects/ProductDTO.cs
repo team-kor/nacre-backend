@@ -5,8 +5,8 @@ namespace DTO.ProductDTO
     {
         public int ProductID { get; set; }
         public string ProductName { get; set; }
-        public double BroughtPrice { get; set; }
-        public double SellingPrice { get; set; }
+        public decimal BoughtPrice { get; set; }
+        public decimal SellingPrice { get; set; }
         public string ProductGroupType { get; set; }
         public string ProductDescription { get; set; }
         public string Status { get; set; }
@@ -16,8 +16,8 @@ namespace DTO.ProductDTO
         public ProductDTO(
             int productID,
             string productName,
-            double broughtPrice,
-            double sellingPrice,
+            decimal boughtPrice,
+            decimal sellingPrice,
             string productGroupType,
             string productDescription,
             string status,
@@ -27,7 +27,7 @@ namespace DTO.ProductDTO
         {
             ProductID = productID;
             ProductName = productName;
-            BroughtPrice = broughtPrice;
+            BoughtPrice = boughtPrice;
             SellingPrice = sellingPrice;
             ProductGroupType = productGroupType;
             ProductDescription = productDescription;
@@ -40,23 +40,23 @@ namespace DTO.ProductDTO
     public class RecievedProductDTO
     {
         public string ProductName { get; set; }
-        public double BroughtPrice { get; set; }
-        public double SellingPrice { get; set; }
+        public decimal BoughtPrice { get; set; }
+        public decimal SellingPrice { get; set; }
         public string ProductGroupType { get; set; }
         public string ProductDescription { get; set; }
         public string Status { get; set; }
 
         public RecievedProductDTO(
             string productName,
-            double broughtPrice,
-            double sellingPrice,
+            decimal boughtPrice,
+            decimal sellingPrice,
             string productGroupType,
             string productDescription,
             string status
         )
         {
             ProductName = productName;
-            BroughtPrice = broughtPrice;
+            BoughtPrice = boughtPrice;
             SellingPrice = sellingPrice;
             ProductGroupType = productGroupType;
             ProductDescription = productDescription;
