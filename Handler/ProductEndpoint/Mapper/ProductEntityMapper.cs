@@ -38,6 +38,7 @@ namespace Handler.ProductEndpoint.Mapper.ProductEntityMapper
                 SellingPrice = recievedProductDTO.SellingPrice,
                 ProductGroupType = recievedProductDTO.ProductGroupType,
                 ProductDescription = recievedProductDTO.ProductDescription,
+                Status = recievedProductDTO.Status,
                 CreatedDate = DateTime.UtcNow,
                 LastUpdatedDate = DateTime.UtcNow,
             };

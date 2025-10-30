@@ -19,6 +19,16 @@ namespace Handler.OrderEndpointHandler.GetCustomerOrderHandler
             _database = database;
         }
 
+        public async Task<List<CustomerOrderDetailForDisplayDTO>> GetAllCustomerOrderDetails(CancellationToken cancellationToken)
+        {
+            var listCustomerOrderDetailForDisplayDTO = await _database.Orders
+                                            .AsNoTracking()
+                                            .Select(CustomerOrderMapper.ExpressionOrderToOrderDTO)
+                                            .ToListAsync(cancellationToken);
+
+            return listCustomerOrderDetailForDisplayDTO;
+        }
+
         public async Task<List<CustomerOrderDetailForDisplayDTO>> GetOrderDetailsByCustomer(int customerId, CancellationToken cancellationToken)
         {
             var listCustomerOrderDetailForDisplayDTO = await _database.Orders

@@ -19,15 +19,16 @@ namespace Handler.OrderEndpointHandler.PostCustomerOrderHander
         }
         public async Task<CustomerOrderDetailForDisplayDTO> InsertNewCustomerOrder(RecievedCustomerOrderDetailDTO receivedCustomerOrder, CancellationToken cancellationToken)
         {
-            var allAvailableProduct = _database.Product.Select(i => i.ProductID).Distinct().ToList();
+            var allAvailableProduct = receivedCustomerOrder.Item.Select(i => i.ProductID).Distinct().ToList();
             var orderProductDictionary = await _database.Product
+                                                .AsNoTracking()
                                                 .Where(i => allAvailableProduct.Contains(i.ProductID))
                                                 .ToDictionaryAsync(p => p.ProductID);
             var customerDetailsForInserting = CustomerOrderMapper.MapRecievedCustomerOrderDTOToCustomerOrder(receivedCustomerOrder);
 
             foreach (var orderItem in customerDetailsForInserting.OrderItems)
             {
-                orderProductDictionary.TryGetValue(orderItem.ProductID, out Product product);
+                orderProductDictionary.TryGetValue(orderItem.ProductID, out Product product); //What this does it looks into the dictionary for the associated productid
                 orderItem.ProductSellingPrice = product.SellingPrice;
 
                 orderItem.TotalOrderPriceForItem = orderItem.ProductSellingPrice * orderItem.OrderedQuantity;

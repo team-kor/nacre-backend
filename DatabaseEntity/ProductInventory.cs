@@ -5,12 +5,9 @@ using Microsoft.AspNetCore.Components.Forms;
 
 namespace DatabaseEntity.ProductInventory
 {
-    public class ProductInventory
+    public class ProductInventories
     {
         [Key]
-        public int PIID { get; set; }
-        
-        [ForeignKey(nameof(Product))]
         public int ProductID { get; set; }
 
         [Required]
@@ -18,8 +15,6 @@ namespace DatabaseEntity.ProductInventory
 
         [Required]
         public int ReserveQuantity { get; set; }
-
-        public DateTime CreatedDate { get; set; } = DateTime.UtcNow;
         
         public DateTime LastUpdatedDate { get; set; } = DateTime.UtcNow;
 

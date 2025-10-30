@@ -6,7 +6,7 @@ namespace Handler.ProductEndpoint.SetUpEndpoint.SetUpProductEndpoint
 {
     public static class SetUpProductEndpoint
     {
-        public static IEndpointRouteBuilder SetUp(this WebApplication app)
+        public static IEndpointRouteBuilder SetUpProductEndpoints(this IEndpointRouteBuilder app)
         {
             RouteGroupBuilder group = app.MapGroup("/product");
 

@@ -27,10 +27,6 @@ namespace DatabaseEntity.OrderItemsEntity
         [Required]
         public Order Orders { get; set; }
 
-        public DateTime CreatedDate { get; set; } = DateTime.UtcNow;
-        
-        public DateTime LastUpdatedDate { get; set; } = DateTime.UtcNow;
-
         [Required]
         public Product Product { get; set; } = null!;
     }

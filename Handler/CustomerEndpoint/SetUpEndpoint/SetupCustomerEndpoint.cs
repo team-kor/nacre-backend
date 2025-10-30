@@ -7,7 +7,7 @@ namespace Hanlder.CustomerEndpointHandlers.SetUpEndpoint.SetUpCustomerEndpoint
 {
     public static class SetUpCustomerEndpoint
     {
-        public static IEndpointRouteBuilder SetUp(this IEndpointRouteBuilder app)
+        public static IEndpointRouteBuilder SetUpCustomerEndpoints(this IEndpointRouteBuilder app)
         {
             RouteGroupBuilder group = app.MapGroup("/customer");
 

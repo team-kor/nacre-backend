@@ -14,7 +14,6 @@ namespace DTO.RecievedCustomerOrderDetailForDisplayDTO
     {
         public int ProductID { get; set; }
         public int OrderedQuantity { get; set; }
-        public decimal ProductSellingPrice { get; set; }
 
     }
 }

@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using DatabaseEntity.ProductInventory;
 
 namespace DatabaseEntity.ProductEntity
 {
@@ -26,7 +27,9 @@ namespace DatabaseEntity.ProductEntity
         public string Status { get; set; } = null!;
 
         public DateTime CreatedDate { get; set; } = DateTime.UtcNow;
-        
+
         public DateTime LastUpdatedDate { get; set; } = DateTime.UtcNow;
+        
+        public ProductInventories productInventory { get; set; }
     }
 }

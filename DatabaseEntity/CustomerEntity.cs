@@ -19,11 +19,11 @@ namespace DatabaseEntity.CustomerEntity
         [Required]
         public string Address { get; set; } = null!;
 
+        [Required]
+        public string ContactPreference { get; set; } = null!;
+
         public DateTime CreatedDate { get; set; } = DateTime.UtcNow;
         
         public DateTime LastUpdatedDate { get; set; } = DateTime.UtcNow;
-
-        [Required]
-        public string ContactPreference { get; set; } = null!;
     }
 }
